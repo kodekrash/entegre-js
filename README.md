@@ -25,7 +25,7 @@ The library follows three main tenents:
 var p = $E('p').child( 'Hello World!' );
 
 // Append to an existing DOM element
-p.put( '#mydiv' );
+p.append( '#mydiv' );
 ```
 
 Your HTML would be
@@ -35,7 +35,7 @@ Your HTML would be
 ```
 
 
-`.put` method uses jQuery's `.append` method, so any valid jQuery selector is valid for `.put`.
+`.append` method uses jQuery's `.append` method, so any valid jQuery selector is valid for `.append`.
 
 ## Recursive objects
 
@@ -47,7 +47,7 @@ var p = $E('p').child( 'Hello World!' );
 var d = $E('div').attr( 'id', 'mydiv' ).child( p );
 
 // Append to DOM
-d.put( 'body' );
+d.append( 'body' );
 ```
 
 Your HTML would be the same
