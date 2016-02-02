@@ -165,7 +165,7 @@ E.factory.attr = class {
 	}
 
 	_buildattr( k, v ) {
-		return `${ k.toString() }="${ ( E.iterable( v ) ? v.join( ' ' ) : v ) }"`;
+		return `${k.toString()}="${( E.iterable( v ) ? v.join( ' ' ) : v )}"`;
 	}
 	
 	buildattrs() {
@@ -234,9 +234,9 @@ E.factory.node = class extends E.factory.base {
 	build() {
 		var nc = [ 'br', 'hr', 'img', 'link', 'meta', 'meta-equiv', 'input' ];
 		var a = this.buildattrs();
-		var s = `<${ this.t + ( !E.empty( a ) ? ' ' + a : '' ) }>`;
+		var s = `<${this.t + ( !E.empty( a ) ? ' ' + a : '' )}>`;
 		if( !( this.t in nc ) ) {
-			s += `${ this.buildchildren() }</${ this.t }>`;
+			s += `${this.buildchildren()}</${this.t}>`;
 		}
 		return s;
 	}
@@ -406,17 +406,13 @@ function $E( cls, arg ) {
 	var ptr = false;
 	if( cls in E.widget ) {
 		ptr = E.widget[ cls ];
-	} else if ( cls in E.plugin ) {
+	} else if( cls in E.plugin ) {
 		ptr = E.plugin[ cls ];
-	} else if ( cls in E.control ) {
+	} else if( cls in E.control ) {
 		ptr = E.control[ cls ];
 	}
 	if( ptr !== false ) {
-		if( arg ) {
-			return new ptr( arg );
-		} else {
-			return new ptr();
-		}
+		return arg ? new ptr( arg ) : new ptr();
 	}
 	return false;
 }
