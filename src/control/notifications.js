@@ -101,7 +101,7 @@ E.control.notifications = class {
 		return this.build();
 	}
 
-	put( t ) {
+	append( t ) {
 		t = this.m == 'bubble' || E.empty( t ) ? 'body' : t;
 		if( !E.empty( t ) ) {
 			$( t ).append( this.build() );

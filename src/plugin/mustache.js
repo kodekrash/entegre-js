@@ -39,7 +39,7 @@ E.plugin.mustache = class {
 		return this.build();
 	}
 
-	put( t ) {
+	append( t ) {
 		if( !E.empty( t ) ) {
 			$( t ).append( this.build() );
 		}

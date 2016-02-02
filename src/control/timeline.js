@@ -70,7 +70,7 @@ E.control.timeline = class extends E.factory.iterable {
 		return x.build();
 	}
 
-	put( t ) {
+	append( t ) {
 		if( !E.empty( t ) ) {
 			$( t ).append( this.build() );
 		}

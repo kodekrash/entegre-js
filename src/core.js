@@ -245,7 +245,7 @@ E.factory.node = class extends E.factory.base {
 		return this.build();
 	}
 	
-	put( t ) {
+	append( t ) {
 		if( !E.empty( t ) ) {
 			$( t ).append( this.build() );
 		}
@@ -391,7 +391,7 @@ E.factory.paginated = class {
 		return this.build();
 	}
 	
-	put( t ) {
+	append( t ) {
 		if( !E.empty( t ) ) {
 			$( t ).append( this.build() );
 			E.events.trigger( `${this.id}:pager`, 0 );

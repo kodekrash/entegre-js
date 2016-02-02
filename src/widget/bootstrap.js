@@ -154,7 +154,7 @@ E.widget.accordion = class extends E.factory.deck {
 		return this.build();
 	}
 	
-	put( t ) {
+	append( t ) {
 		if( !E.empty( t ) ) {
 			$( t ).append( this.build() );
 		}
@@ -305,7 +305,7 @@ E.widget.checkbox = class extends E.factory.attr {
 		return this.build();
 	}
 
-	put( t ) {
+	append( t ) {
 		if( !E.empty( t ) ) {
 			$( t ).append( this.build() );
 		}
@@ -384,7 +384,7 @@ E.widget.dropdown = class extends E.factory.iterable {
 		return this.build();
 	}
 	
-	put( t ) {
+	append( t ) {
 		if( !E.empty( t ) ) {
 			$( t ).append( this.build() );
 		}
@@ -761,7 +761,7 @@ E.widget.navbar = class extends E.factory.iterable {
 		return this.build();
 	}
 	
-	put( t ) {
+	append( t ) {
 		if( !E.empty( t ) ) {
 			$( t ).append( this.build() );
 		}
@@ -987,7 +987,7 @@ E.widget.radio = class extends E.factory.attr {
 		return this.build();
 	}
 
-	put( t ) {
+	append( t ) {
 		if( !E.empty( t ) ) {
 			$( t ).append( this.build() );
 		}
@@ -1063,7 +1063,7 @@ E.widget.select = class extends E.factory.iterable {
 		return this.build();
 	}
 	
-	put( t ) {
+	append( t ) {
 		if( !E.empty( t ) ) {
 			$( t ).append( this.build() );
 		}
@@ -1207,7 +1207,7 @@ E.widget.tabs = class extends E.factory.deck {
 		return this.build();
 	}
 	
-	put( t ) {
+	append( t ) {
 		if( !E.empty( t ) ) {
 			$( t ).append( this.build() );
 		}
