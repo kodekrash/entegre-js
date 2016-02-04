@@ -1,6 +1,6 @@
 /**
  * @package EntegreJS
- * @subpackage tags
+ * @subpackage Tags
  * @author James Linden <kodekrash@gmail.com>
  * @copyright 2016 James Linden
  * @license MIT

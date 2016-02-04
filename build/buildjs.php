@@ -11,9 +11,10 @@
 define( 'DEBUG', true );
 
 $build = [
-	'core' => [ 'core', 'tags', 'widget/bootstrap' ],
-	'plugins' => 'plugin/*',
-	'controls' => 'control/*'
+	'core' => [ 'core.js', 'factory/attr.js', 'factory/iterable.js', 'factory/base.js', 'factory/*.js', 'tags.js' ],
+	'bootstrap' => [ 'bootstrap/bootstrap.js', 'bootstrap/*.js' ],
+	'widgets' => 'widget/*.js',
+	'controls' => 'control/*.js'
 ];
 
 $filename = 'entegre-%s.min.js';
@@ -48,60 +49,70 @@ class helpers {
 		}
 	}
 
+	public static function clean( $src ) {
+		$src = helpers::stripcomments( $src );
+		$src = helpers::unduplicate( $src, PHP_EOL );
+		$src = helpers::unduplicate( $src, ' ' );
+		return trim( $src );
+	}
+
+	public static function uglify( $src ) {
+		$src = str_replace( chr(9), ' ', $src );
+		$x1 = [ ', ', ' }', '{ ', ' )', '( ', ' ]', ' [', ' :', ': ' ];
+		$x2 = [ ',', '}', '{', ')', '(', ']', '[', ':', ':' ];
+		$src = str_replace( $x1, $x2, $src );
+		$src = helpers::unduplicate( $src, ' ' );
+		$src = str_replace( PHP_EOL . ' ' . PHP_EOL, PHP_EOL, $src );
+		$src = str_replace( PHP_EOL . ' ', PHP_EOL, $src );
+		return trim( $src );
+	}
+
 }
 
-$a = [];
+$all = [];
 
 $prefix = '// EntegreJS -- http://entegre.io' . PHP_EOL . '"use strict";' . PHP_EOL;
 
 foreach( $build as $group => $sources ) {
 	helpers::debug( 'Building ' . $group );
-	$s = [];
-	if( !is_array( $sources ) ) {
-		$d = dirname( $sources );
-		$x = glob( '../src/' . $sources );
+	$files = [];
+	$sources = is_array( $sources ) ? $sources : [ $sources ];
+	foreach( $sources as $source ) {
+		$x = glob( '../src/' . $source );
 		if( is_array( $x ) ) {
-			$sources = [];
 			foreach( $x as $y ) {
-				$sources[] = $d . '/' . basename( $y, '.js' );
+				if( !in_array( $y, $files ) ) {
+					$files[] = $y;
+				}
 			}
 		}
 	}
-	if( !is_array( $sources ) ) {
-		helpers::debug( chr(9) . 'No sources found' );
-		break;
-	}
-	foreach( $sources as $file ) {
-		$file = '../src/' . $file . '.js';
-		if( is_file( $file ) ) {
+	if( !empty( $files ) ) {
+		$src = [];
+		foreach( $files as $file ) {
 			helpers::debug( chr(9) . 'Adding ' . $file );
-			$s[] = file_get_contents( $file );
-		} else {
-			helpers::debug( chr(9) . 'ERROR -- Unable to add ' . $file );
+			$src[] = file_get_contents( $file );
 		}
+		if( !empty( $src ) ) {
+			$src = implode( PHP_EOL, $src );
+			helpers::debug( 'Cleaning ' . $group );
+			$src = helpers::clean( $src );
+			helpers::debug( 'Uglifying ' . $group );
+			$src = helpers::uglify( $src );
+			$all[] = $src;
+			$name = sprintf( $filename, $group );
+			helpers::debug( 'Saving ' . $group . ' to ' . $name );
+			helpers::save( $path, $name, $prefix . $src );
+		}
+	} else {
+		helpers::debug( chr(9) . 'No sources found' );
 	}
-	helpers::debug( 'Cleaning ' . $group );
-	$s = implode( PHP_EOL, $s );
-	$s = helpers::stripcomments( $s );
-	helpers::debug( 'Uglifying ' . $group );
-	$s = str_replace( chr(9), ' ', $s );
-	$s = helpers::unduplicate( $s, PHP_EOL );
-	$s = helpers::unduplicate( $s, ' ' );
-	$src = [ ', ', ' }', '{ ', ' )', '( ', ' ]', ' [', ' :', ': ' ];
-	$fix = [ ',', '}', '{', ')', '(', ']', '[', ':', ':' ];
-	$s = str_replace( $src, $fix, $s );
-	$s = helpers::unduplicate( $s, ' ' );
-	$s = str_replace( PHP_EOL . ' ' . PHP_EOL, PHP_EOL, $s );
-	$s = str_replace( PHP_EOL . ' ', PHP_EOL, $s );
-	$s = trim( $s );
-	$a[] = $s;
-	$fn = sprintf( $filename, $group );
-	helpers::debug( 'Saving ' . $group . ' to ' . $fn );
-	helpers::save( $path, $fn, $prefix . $s );
 }
-$fn = sprintf( $filename, 'all' );
-helpers::debug( 'Saving combined sources to ' . $fn );
-helpers::save( $path, $fn, $prefix . implode( ' ', $a ) );
+if( !empty( $all ) ) {
+	$name = sprintf( $filename, 'all' );
+	helpers::debug( 'Saving combined sources to ' . $name );
+	helpers::save( $path, $name, $prefix . implode( PHP_EOL, $all ) );
+}
 helpers::debug( 'Done' );
 
 ?>

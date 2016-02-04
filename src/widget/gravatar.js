@@ -1,13 +1,13 @@
 /**
  * @package EntegreJS
- * @subpackage Plugins
+ * @subpackage Widgets
  * @subpackage gravatar
  * @author James Linden <kodekrash@gmail.com>
  * @copyright 2016 James Linden
  * @license MIT
  */
 
-E.plugin.gravatar = class {
+E.widget.gravatar = class {
 
 	constructor( email, size ) {
 		this.e = '';
@@ -27,15 +27,15 @@ E.plugin.gravatar = class {
 		return this;
 	}
 	
-	size( i ) {
-		if( i ) {
-			this.s = parseInt( i );
+	size( s ) {
+		if( s ) {
+			this.s = s.toString();
 		}
 		return this;
 	}
 
 	uri() {
-		return 'http:/' + '/www.gravatar.com/avatar/' + md5( this.e ) +	( !E.empty( this.s ) ? '?s=' + this.s.toString() : '' );
+		return 'http:/' + '/www.gravatar.com/avatar/' + md5( this.e ) +	( !E.empty( this.s ) ? '?s=' + this.s : '' );
 	}
 	
 	build() {

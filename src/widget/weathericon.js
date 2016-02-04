@@ -1,13 +1,13 @@
 /**
  * @package EntegreJS
- * @subpackage Plugins
+ * @subpackage Widgets
  * @subpackage weathericon
  * @author James Linden <kodekrash@gmail.com>
  * @copyright 2016 James Linden
  * @license MIT
  */
 
-E.plugin.weathericon = class extends E.factory.node {
+E.widget.weathericon = class extends E.factory.node {
 
 	constructor( icon ) {
 		super( 'i' );

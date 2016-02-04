@@ -1,13 +1,13 @@
 /**
  * @package EntegreJS
- * @subpackage Plugins
+ * @subpackage Widgets
  * @subpackage flagicon
  * @author James Linden <kodekrash@gmail.com>
  * @copyright 2016 James Linden
  * @license MIT
  */
 
-E.plugin.flagicon = class extends E.factory.node {
+E.widget.flagicon = class extends E.factory.node {
 
 	constructor( country ) {
 		super( 'i' );
@@ -40,7 +40,7 @@ E.plugin.flagicon = class extends E.factory.node {
 	
 	valid( country ) {
 		country = country.toString().toLowerCase();
-		if( E.plugin.flagicon.flags().includes( country ) ) {
+		if( E.widget.flagicon.flags().includes( country ) ) {
 			return country;
 		}
 		return '';
