@@ -57,4 +57,10 @@ $( function() {
 		$E('gravatar').email('iamentegre@gmail.com').size( g[ i ] ).append( '#demo-gravatar' );
 	}
 
+	// octicons
+	var g = [ 'bug', 'circuit-board', 'git-branch', 'git-merge', 'mark-github', 'radio-tower', 'settings', 'squirrel', 'sync', 'tag', 'terminal', 'versions' ];
+	for( var i in g ) {
+		var o = $E('octicon', g[ i ] ).mega().append( '#demo-octicon-' + i );
+	}
+
 } );

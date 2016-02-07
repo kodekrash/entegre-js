@@ -46,7 +46,7 @@ E.control.tree = class extends E.factory.iterable {
 				x.child( y );
 			}
 		}
-		x = new E.widget.div( { 'class': 'e-tree' }, x );
+		x = new E.tag.div( { 'class': 'e-tree' }, x );
 		return x.build();
 	}
 

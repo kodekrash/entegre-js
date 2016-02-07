@@ -44,6 +44,10 @@ class Entegre {
 					} );
 					return this;
 				}
+
+				events() {
+					return Object.keys( this.e );
+				}
 			}
 		};
 		this.events = new this.utility.events();
@@ -124,13 +128,13 @@ var E = new Entegre();
 function $E( cls, arg ) {
 	cls = cls.toString().toLowerCase();
 	var ptr = false;
-	if( cls in E.bootstrap ) {
+	if( E.bootstrap && cls in E.bootstrap ) {
 		ptr = E.bootstrap[ cls ];
-	} else if( cls in E.widget ) {
+	} else if( E.widget && cls in E.widget ) {
 		ptr = E.widget[ cls ];
-	} else if( cls in E.control ) {
+	} else if( E.control && cls in E.control ) {
 		ptr = E.control[ cls ];
-	} else if( cls in E.tag ) {
+	} else if( E.tag && cls in E.tag ) {
 		ptr = E.tag[ cls ];
 	}
 	if( ptr !== false ) {
