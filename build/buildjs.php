@@ -10,6 +10,11 @@
 
 define( 'DEBUG', true );
 
+$vers = $_SERVER['argc'] > 1 ? trim( $_SERVER['argv'][1] ) : null;
+if( empty( $vers ) ) {
+	die( 'Usage: buildjs.php version' . PHP_EOL );
+}
+
 $build = [
 	'core' => [ 'core.js', 'factory/attr.js', 'factory/iterable.js', 'factory/base.js', 'factory/*.js', 'tags.js' ],
 	'bootstrap' => [ 'bootstrap/bootstrap.js', 'bootstrap/*.js' ],
@@ -18,7 +23,10 @@ $build = [
 ];
 
 $filename = 'entegre-%s.min.js';
-$path = './dist/';
+$path = './dist/' . $vers . '/';
+if( !is_dir( $path ) ) {
+	mkdir( $path );
+}
 
 class helpers {
 

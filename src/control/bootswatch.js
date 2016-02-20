@@ -28,6 +28,7 @@ E.control.bootswatch = class {
 
 	clear() {
 		this.load( null );
+		return this;
 	}
 
 	theme( t ) {

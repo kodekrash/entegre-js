@@ -38,13 +38,6 @@ E.control.dataview = class extends E.factory.paginated {
 		return this;
 	}
 
-	rows( x ) {
-		if( !E.empty( x ) && E.type( x, 'array' ) ) {
-			this.d = x;
-		}
-		return this;
-	}
-
 	_renderitem( x ) {
 		if( x ) {
 			if( !E.empty( this.otemplate ) && window.Mustache ) {

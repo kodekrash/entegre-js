@@ -9,6 +9,10 @@
 
 $( function() {
 
+	if( !window.E ) {
+		return false;
+	}
+
 	// highlighter
 	var c = [ '#!/bin/bash', '', 'if [ $# -lt 3 ]; then', '	echo "Usage: $0 database user pass [import_file]"',
 		'	exit 1', 'fi', '', 'db=$(mysql --batch --skip-column-names -e "SHOW DATABASES LIKE \'$1\';" | grep "$1" > /dev/null; echo "$?")',

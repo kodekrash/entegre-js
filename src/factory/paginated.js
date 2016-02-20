@@ -67,7 +67,7 @@ E.factory.paginated = class {
 
 	_controls() {
 		if( this._total() > this.opage ) {
-			var x = new E.widget.pager( { 'class': 'e-pagination' } );
+			var x = new E.bootstrap.pager( { 'class': 'e-pagination' } );
 			x.button( $E( 'glyphicon','step-backward' ), '#' + this.id, false, { 'data-index': this._first(), 'title': 'First page', 'class': 'page-first' } );
 			x.button( $E( 'glyphicon','triangle-left' ), '#' + this.id, false, { 'data-index': this._prev(), 'title': 'Previous page', 'class': 'page-prev' } );
 			x.button( $E( 'glyphicon','triangle-right' ), '#' + this.id, false, { 'data-index': this._next(), 'title': 'Next page', 'class': 'page-next' } );

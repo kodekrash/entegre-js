@@ -35,7 +35,7 @@ E.control.tree = class extends E.factory.iterable {
 				var y = E.node( 'li' );
 				if( c instanceof E.factory.treebranch ) {
 					var n = E.id( 'et' );
-					var z = new E.widget.glyphicon( 'chevron-right', { 'id': `${n}-i` } );
+					var z = new E.bootstrap.glyphicon( 'chevron-right', { 'id': `${n}-i` } );
 					y.child( new E.tag.a( { 'class': 'e-tree-toggle', 'href': `#${n}` , 'data-toggle': 'collapse', 'aria-expanded': 'false', 'aria-controls': n }, z ) );
 					y.child( ' ' );
 					y.child( c.label() );

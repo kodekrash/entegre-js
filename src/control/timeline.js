@@ -38,7 +38,7 @@ E.control.timeline = class extends E.factory.iterable {
 		};
 		if( !E.empty( mode ) ) {
 			mode = mode.toString().toLowerCase();
-			if( E.bootstrap.modes.includes( mode ) ) {
+			if( E.bootstrap.conf.modes.includes( mode ) ) {
 				x.mode = mode;
 			}
 		}
@@ -59,7 +59,7 @@ E.control.timeline = class extends E.factory.iterable {
 			var c = this.c[ i ];
 			var r = new E.tag.div( { 'class': 'row' } );
 			r.child( new E.tag.div( { 'class': 'col-xs-6 col-md-4 text-nowrap text-right e-timeline-label' }, c.label ) );
-			var p = new E.widget.progressbar();
+			var p = new E.bootstrap.progressbar();
 			if( c.offset > 0 ) {
 				p.bar( 0, this.length, c.offset, 'offset' );
 			}

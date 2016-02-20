@@ -26,7 +26,7 @@ E.bootstrap.pager = class extends E.factory.attr {
 	}
 
 	build() {
-		var x = new E.widget.list( { 'class': 'pager' } );
+		var x = new E.bootstrap.list( { 'class': 'pager' } );
 		for( var i in this.c ) {
 			var y = new E.factory.node( 'a', { 'href': this.c[ i ].url }, this.c[ i ].label );
 			if( !E.empty( this.c[ i ].attr ) ) {

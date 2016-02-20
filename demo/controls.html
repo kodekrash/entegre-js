@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Entegre Demo -- Controls</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+		<style>
+			body { padding-top: 50px; }
+		</style>
+	</head>
+	<body>
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="glyphicon glyphicon-option-vertical"></span>
+					</button>
+					<a href="#" class="navbar-brand">Entegre UI Kit Demos</a>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li><a href="bootstrap.html">Bootstrap Components</a></li>
+						<li><a href="widgets.html">Widgets</a></li>
+						<li class="active"><a href="controls.html">Controls</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<div class="container">
+			<div class="page-header">
+				<h1>Bootswatch switcher</h1>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 col-md-4">
+					<button class="btn btn-default" id="demo-bootswatch-clear">Clear Bootswatch Theme</button>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-8">
+					<div id="demo-bootswatch"> </div>
+				</div>
+			</div>
+			<div class="page-header">
+				<h1>Notifications</h1>
+			</div>
+			<div class="row">
+				<div class="col-xs-6">
+					<h3>Bubble style</h3>
+					<div class="btn-group btn-group" id="demo-notifications-trigger-1">
+						<button type="button" class="btn btn-success" data-mode="success">Success</button>
+						<button type="button" class="btn btn-info" data-mode="info">Info</button>
+						<button type="button" class="btn btn-warning" data-mode="warning">Warning</button>
+						<button type="button" class="btn btn-danger" data-mode="danger">Danger</button>
+					</div>
+				</div>
+				<div class="col-xs-6">
+					<h3>Bar style</h3>
+					<div class="btn-group btn-group" id="demo-notifications-trigger-2">
+						<button type="button" class="btn btn-success" data-mode="success">Success</button>
+						<button type="button" class="btn btn-info" data-mode="info">Info</button>
+						<button type="button" class="btn btn-warning" data-mode="warning">Warning</button>
+						<button type="button" class="btn btn-danger" data-mode="danger">Danger</button>
+					</div>
+				</div>
+			</div>
+			<div class="page-header">
+				<h1>Data table</h1>
+			</div>
+			<div id="demo-datatable"></div>
+			<div class="page-header">
+				<h1>Data view</h1>
+			</div>
+			<div id="demo-dataview"></div>
+			<div class="page-header">
+				<h1>Timeline</h1>
+			</div>
+			<div id="demo-timeline"></div>
+			<div class="page-header">
+				<h1>Tree</h1>
+			</div>
+			<div id="demo-tree"></div>
+			<hr>
+			<p class="text-center text-muted">&copy; 2016 James Linden, Some rights reserved.</p>
+		</div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment.min.js"></script>
+		<script src="../build/dist/0.3.1/entegre-all.min.js"></script>
+		<script src="controls.js"></script>
+	</body>
+</html>
