@@ -137,7 +137,9 @@ function $E( cls, arg ) {
 	} else if( E.tag && cls in E.tag ) {
 		ptr = E.tag[ cls ];
 	}
-	if( ptr !== false ) {
+	if( ptr === false ) {
+		return arg ? E.node( cls, arg ) : E.node( cls );
+	} else {
 		return arg ? new ptr( arg ) : new ptr();
 	}
 	return false;
