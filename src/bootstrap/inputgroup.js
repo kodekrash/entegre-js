@@ -19,7 +19,7 @@ E.bootstrap.inputgroup = class extends E.factory.node {
 
 	size( x ) {
 		x = x.toString().toLowerCase();
-		if( E.bootstrap.sizes.includes( x ) ) {
+		if( E.bootstrap.conf.sizes.includes( x ) ) {
 			this.is = x;
 		}
 		return this;

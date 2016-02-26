@@ -47,7 +47,7 @@ E.bootstrap.checkbox = class extends E.factory.attr {
 		if( !E.empty( this.txt ) ) {
 			x.child( this.txt );
 		}
-		if( this.io !== true ) {
+		if( this.oi !== true ) {
 			x = new E.tag.div( { 'class': 'checkbox' }, x );
 			if( this.od === true ) {
 				x.attr( 'disabled', true );
