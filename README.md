@@ -17,6 +17,3 @@ Application development is the main target use for Entegre. It isn't intended fo
 * Recursive object build
 * Late DOM modification
 
-## More Information
-
-See http://entegre.io/js/ for full documentation.
